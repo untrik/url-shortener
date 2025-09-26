@@ -1,6 +1,6 @@
 env: "prod"
 db:
-  host: db
+  host: 127.0.0.1
   port: 5432
   user: untrick
   password: 4thtgeirf_2001
