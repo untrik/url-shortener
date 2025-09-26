@@ -1,0 +1,13 @@
+env: "prod"
+db:
+  host: db
+  port: 5432
+  user: untrick
+  password: 4thtgeirf_2001
+  name: dbUrlShortener
+  sslmode: disable
+http_server:
+  address: "0.0.0.0:8082"
+  timeout: 5s
+  idle_timeout: 60s
+  user: "untrick"
