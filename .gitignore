@@ -1,0 +1,5 @@
+/storage/storage.db
+/docker-compose.yml
+/Dockerfile
+/.dockerignore
+/pgdata
