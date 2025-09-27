@@ -11,7 +11,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      HOST: root@91.219.190.2
+      HOST: root@185.161.64.187
       DEPLOY_DIRECTORY: /root/apps/url-shortener
 
     steps:
