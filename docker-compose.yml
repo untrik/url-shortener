@@ -1,0 +1,45 @@
+
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: dbUrlShortener
+    restart: always
+    environment:
+      POSTGRES_USER: untrick
+      POSTGRES_PASSWORD: 4thtgeirf_2001
+      POSTGRES_DB: dbUrlShortener
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: mypgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+  backend:
+    build: .
+    container_name: url-shortener
+    restart: always
+    depends_on:
+      - db
+    environment:
+
+      CONFIG_PATH: /app/config/prod.yaml
+
+      HTTP_SERVER_PASSWORD: ${HTTP_SERVER_PASSWORD}
+    volumes:
+
+      - ./config/prod.yaml:/app/config/prod.yaml:ro
+    ports:
+      - "8082:8082"   
+
+volumes:
+  pg_data:
